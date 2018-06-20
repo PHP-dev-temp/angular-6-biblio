@@ -1,0 +1,21 @@
+
+<div class="container" style="margin-top: 60px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <label style="margin-right:10px;">Filter users: </label>
+      <input type="text" [(ngModel)]="filterString">
+      <hr>
+      <button type="button" class="btn btn-success" (click)="onNewUser()">Add customer</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <!--<router-outlet></router-outlet>-->
+    <app-user-list
+      *ngFor="let user of users | filterName:filterString"
+      [username]="user.name"
+      [routerLink]="user.id"
+    ></app-user-list>
+  </div>
+</div>
+

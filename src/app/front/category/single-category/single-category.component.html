@@ -1,0 +1,26 @@
+
+<div class="container" style="margin-top: 60px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <h2>Category: {{cname}}</h2>
+      <hr>
+      <label style="margin-right:10px;">Filter books: </label>
+      <input type="text" [(ngModel)]="filterString">
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <!--<router-outlet></router-outlet>-->
+    <app-book-list
+      *ngFor="let book of books | filterName:filterString"
+      [book]="book"
+      (click)="selectBook(book.id)"
+    ></app-book-list>
+  </div>
+</div>
+
+<app-single-book
+  [selectedBook]="selectedBook"
+  [showModal]="showModal"
+></app-single-book>
+

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#bs-example-navbar-collapse-1"
+        aria-expanded="false"
+        (click)="toggleNav()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a style="cursor: pointer" routerLink="/" class="navbar-brand">Library</a>
+    </div>
+
+    <div class="navbar-collapse" [ngClass]="{'collapse': isVisible}">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/books" style="cursor: pointer">Books</a></li>
+        <li routerLinkActive="active"><a routerLink="/categories" style="cursor: pointer">Categories</a></li>
+        <li routerLinkActive="active"><a routerLink="/authors" style="cursor: pointer">Authors</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" appDropdown>
+          <a style="cursor: pointer" class="dropdown-toggle" role="button">Dashboard <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a style="cursor: pointer"
+                   routerLink="/login"
+                   *ngIf="!(customerUser || adminUser)" >LogIn</a></li>
+            <li><a style="cursor: pointer" *ngIf="customerUser" routerLink="/info">User info</a></li>
+            <li><a style="cursor: pointer" *ngIf="customerUser" routerLink="/rentals">Rentals</a></li>
+            <li><a style="cursor: pointer" *ngIf="adminUser" routerLink="admin-books/new">New Book</a></li>
+            <li><a style="cursor: pointer" *ngIf="adminUser" routerLink="/admin-categories/new">New Category</a></li>
+            <li><a style="cursor: pointer" *ngIf="adminUser" routerLink="/admin-authors/new">New Author</a></li>
+            <li><a style="cursor: pointer" *ngIf="adminUser"
+                   routerLink="/admin-users">Users</a></li>
+            <li><a style="cursor: pointer" *ngIf="customerUser || adminUser"
+                   routerLink="/logout">LogOut</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

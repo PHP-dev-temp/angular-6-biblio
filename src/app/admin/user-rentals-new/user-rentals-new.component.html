@@ -1,0 +1,18 @@
+<div class="container" style="margin-top: 60px;">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <label style="margin-right:10px;">Enter Book's title: </label>
+      <input type="text" [(ngModel)]="filterString">
+    </div>
+  </div>
+  <hr>
+  <div class="row"
+       *ngFor="let book of books | filterName:filterString"
+       (click)="selectBook(book.id)">
+    <div class="col-xs-12  col-sm-6 col-sm-offset-3">
+      <a style="cursor: pointer;" class="list-group-item clearfix">
+      {{book.id}}. {{book.name}}
+      </a>
+    </div>
+  </div>
+</div>

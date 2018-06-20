@@ -1,0 +1,26 @@
+
+<!-- The Modal -->
+<div id="myModal" class="custom-modal open" *ngIf="showModal === hideModal">
+
+  <!-- Modal content -->
+  <div class="custom-modal-content">
+    <span class="close" (click)="onClose()">&times;</span>
+    <h2 class="text-center">{{ selectedAuthor.name }}</h2>
+    <div class="img-responsive" style="width:50%; height:auto; margin:auto;">
+      <img
+        src="{{imagesLink + selectedAuthor.image}}"
+        alt="{{ selectedAuthor.name }}"
+        class="img-responsive"
+        style="margin:auto;">
+    </div>
+    <h4>Biography:</h4>
+    <p>{{ selectedAuthor.bio }}</p>
+  </div>
+
+</div>
+
+
+
+
+
+

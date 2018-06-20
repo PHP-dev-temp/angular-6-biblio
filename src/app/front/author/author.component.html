@@ -1,0 +1,32 @@
+
+<div class="container" style="margin-top: 60px;">
+  <div class="row"
+       *ngIf="isAdmin">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <a class="btn btn-primary"
+         routerLink="/admin-authors/new">New Author</a>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <label style="margin-right:10px;">Filter authors: </label>
+      <input type="text" [(ngModel)]="filterString">
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <!--<router-outlet></router-outlet>-->
+    <app-author-list
+      *ngFor="let author of authors | filterName:filterString"
+      [author]="author"
+      (click)="selectAuthor(author.id)"
+    ></app-author-list>
+  </div>
+</div>
+
+<app-single-author
+  [selectedAuthor]="selectedAuthor"
+  [showModal]="showModal"
+></app-single-author>
+

@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: 60px;">
+  <div class="row list-group-item clearfix">
+    <div class="col-xs-12 col-sm-3">
+      <h3>Status</h3>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <h3>Start date</h3>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <h3>End date</h3>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <h3>Book</h3>
+    </div>
+    <hr>
+  </div>
+  <div class="row list-group-item clearfix"
+  *ngFor="let rental of rentals">
+    <div class="col-xs-12 col-sm-3">
+      <p>{{rental.status}}</p>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <p>{{rental.created_at}}</p>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <p>{{rental.end_date}}</p>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <p>{{rental.book.name}}</p>
+    </div>
+    <hr>
+  </div>

@@ -1,0 +1,20 @@
+
+<div class="container" style="margin-top: 60px;">
+  <div class="row"
+       *ngIf="isAdmin">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <a class="btn btn-primary"
+         routerLink="/admin-categories/new">New Category</a>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <!--<router-outlet></router-outlet>-->
+    <app-category-list
+      *ngFor="let category of categories"
+      [category]="category"
+      (click)="selectCategory(category.id)"
+    ></app-category-list>
+  </div>
+</div>
+

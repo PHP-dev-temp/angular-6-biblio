@@ -1,0 +1,46 @@
+
+<!-- The Modal -->
+<div id="myModal" class="custom-modal open" *ngIf="showModal === hideModal">
+
+  <!-- Modal content -->
+  <div class="custom-modal-content">
+    <span class="close" (click)="onClose()">&times;</span>
+    <h2 class="text-center">{{ selectedBook.name }}</h2>
+    <div class="img-responsive" style="width:50%; height:auto; margin:auto;">
+      <img
+        src="{{imagesLink + selectedBook.image}}"
+        alt="{{ selectedBook.name }}"
+        class="img-responsive"
+      style="margin:auto;">
+    </div>
+    <h4>Author: {{ selectedBook.author.name }}</h4>
+    <h5>Inventory: {{selectedBook.inventory.quantity}}</h5>
+    <h4>Description:</h4>
+    <p>{{ selectedBook.description }}</p>
+    <h4>Categories:</h4>
+    <ul style="list-style-type:circle">
+      <li *ngFor="let cat of selectedBook.categories"
+          (click)="categoryOpen(cat.id)"
+          style="display:inline-block; margin-right:10px; cursor:pointer">
+        {{cat.name}}
+      </li>
+    </ul>
+    <div *ngIf="adminUser">
+      <hr>
+      <button type="button"
+              class="btn btn-default"
+              style="margin-right:10px;"
+              (click)="editBook(selectedBook.id)">Edit book</button>
+      <button type="button"
+              class="btn btn-default"
+              (click)="onRentals(selectedBook.id)">Show rentals</button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
